@@ -1,0 +1,60 @@
+@media (max-width: 768px) {
+
+  /* HEADER giữ nguyên full width */
+  .header {
+    padding: 12px 15px;
+  }
+
+  /* ❌ BỎ margin auto + width 90% */
+  .banner {
+    width: 100%;
+    margin: 0; /* QUAN TRỌNG */
+    border-radius: 0; /* nếu muốn sát mép giống ảnh */
+     width: 100%;
+    margin-top: 10px; /* tạo khoảng cách với header */
+    border-radius: 10px; /* giống card trong ảnh */
+  }
+
+  /* container mới là phần có khoảng cách */
+  .container {
+    width: 100%;
+    padding: 0 15px;
+  }
+
+  /* các card giữ spacing bên trong container */
+  .card {
+    padding: 15px;
+  }
+
+  /* ROW -> dọc */
+  .row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  input,
+  select,
+  .btn {
+    width: 100%;
+  }
+
+  .btn {
+    margin-top: 5px;
+  }
+
+  .list li {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .list li div {
+    display: flex;
+    gap: 5px;
+  }
+
+  .pagination {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}

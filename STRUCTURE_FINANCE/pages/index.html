@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/responsive.css">
+  </head>
+  <body>
+    <header class="header">
+  <div class="header-left">
+    <p>📒 Tài Chính Cá Nhân Kiên</p>
+  </div>
+  <div class="header-right">
+    <select class="account-select">
+      <option>Tài khoản</option>
+    </select>
+  </div>
+</header>
+
+<div class="banner">
+  <h2>🎯 Kiểm soát chi tiêu thông minh</h2>
+  <p>Theo dõi ngân sách và thu chi hằng tháng dễ dàng</p>
+</div>
+
+<section class="container">
+  <h2 class="section-title">📊 Quản Lý Tài Chính Cá Nhân</h2>
+
+  <div class="card row">
+    <p>📅 Chọn tháng:</p>
+    <input type="month" />
+  </div>
+
+  <div class="card row">
+    <p>💰 Ngân sách tháng:</p>
+    <input placeholder="VD: 5000000" type="number" />
+    <button class="btn blue">Lưu</button>
+  </div>
+
+  <div class="card center">
+    <p>Số tiền còn lại</p>
+    <h3 class="money">0 VND</h3>
+  </div>
+
+  <div class="card">
+    <h3>💼 Quản lý danh mục (theo tháng)</h3>
+
+    <div class="row">
+      <input placeholder="Tên danh mục" type="text" />
+      <input placeholder="Giới hạn (VND)" type="number" />
+      <button class="btn green">Thêm danh mục</button>
+    </div>
+
+    <ul class="list">
+      <li>
+        <span>tiền phòng - Giới hạn: 2,000,000 VND</span>
+        <div>
+          <button class="btn red">Sửa</button>
+          <button class="btn red">Xóa</button>
+        </div>
+      </li>
+      <li>
+        <span>tiền ăn - Giới hạn: 1,000,000 VND</span>
+        <div>
+          <button class="btn red">Sửa</button>
+          <button class="btn red">Xóa</button>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="card row">
+    <input placeholder="Số tiền" type="number" />
+    <select>
+      <option>Tiền chi tiêu</option>
+    </select>
+    <input placeholder="Ghi chú" type="text" />
+    <button class="btn purple">Thêm</button>
+  </div>
+
+  <div class="card">
+    <h3>🧾 Lịch sử giao dịch</h3>
+
+    <div class="row">
+      <input placeholder="tìm nội dung " type="text" />
+      <button class="btn blue">🔍</button>
+      <select>
+        <option>Sắp xếp giá</option>
+      </select>
+    </div>
+
+    <ul class="list">
+      <li>
+        <span>tiền phòng - 2,000,000 VND</span>
+        <button class="btn red">Xóa</button>
+      </li>
+    </ul>
+
+    <div class="pagination">
+      <button>Previous</button>
+      <button class="active">1</button>
+      <button>2</button>
+      <button>Next</button>
+    </div>
+  </div>
+
+  <div class="alert">
+    Danh mục "tiền ăn" đã vượt giới hạn: 1,060,000 / 1,000,000 VND
+  </div>
+
+  <div class="card">
+    <h3>📆 Thống kê chi tiêu các tháng</h3>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Tháng</th>
+          <th>Chi tiêu</th>
+          <th>Ngân sách</th>
+          <th>Trạng thái</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</section>
+
+<footer class="footer">
+  © 2025 Quản Lý Tài Chính Cá Nhân
+</footer>
+    <script src="/js/index.js"></script>
+  </body>
+</html>

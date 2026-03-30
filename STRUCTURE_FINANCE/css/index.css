@@ -1,0 +1,162 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+body {
+  background: #f3f4f6;
+}
+
+/* HEADER */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 30px;
+  background: linear-gradient(90deg, #4f46e5, #6d28d9);
+  color: white;
+}
+
+.account-select {
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* BANNER */
+.banner {
+  width: 60%;
+  margin: 30px auto;
+  background: linear-gradient(90deg, #4f46e5, #6d28d9);
+  color: white;
+  text-align: center;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* CONTAINER */
+.container {
+  width: 60%;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  margin: 20px 0;
+  color: #4f46e5;
+}
+
+/* CARD */
+.card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.center {
+  text-align: center;
+}
+
+.money {
+  color: green;
+}
+
+/* INPUT */
+input, select {
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+/* BUTTON */
+.btn {
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+}
+
+.blue {
+  background: #3b82f6;
+}
+
+.green {
+  background: #22c55e;
+}
+
+.red {
+  background: #ef4444;
+}
+
+.purple {
+  background: #6366f1;
+}
+
+/* LIST */
+.list {
+  list-style: none;
+  margin-top: 10px;
+}
+
+.list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+/* PAGINATION */
+.pagination {
+  display: flex;
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.pagination button {
+  padding: 5px 10px;
+}
+
+.pagination .active {
+  background: #3b82f6;
+  color: white;
+}
+
+/* ALERT */
+.alert {
+  background: #fee2e2;
+  color: red;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* TABLE */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th, .table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 15px;
+  background: linear-gradient(90deg, #4f46e5, #6d28d9);
+  color: white;
+  margin-top: 30px;
+}

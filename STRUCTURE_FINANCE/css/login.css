@@ -1,0 +1,85 @@
+/* Reset nhẹ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Background toàn màn hình */
+body {
+  height: 100vh;
+  background: #f3f4f6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card login */
+.loginCss {
+  width: 320px;
+  background: #ffffff;
+  padding: 25px 20px;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+/* Title */
+.loginCss p:first-child {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+/* Input */
+.loginCss input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.loginCss input:focus {
+  border-color: #6c63ff;
+  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.1);
+}
+
+/* Button */
+.loginCss button {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(90deg, #6c63ff, #5a54e6);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: 0.2s;
+}
+
+.loginCss button:hover {
+  opacity: 0.9;
+}
+
+/* Text dưới */
+.loginCss p:last-child {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #666;
+}
+
+/* Link */
+.loginCss a {
+  color: #6c63ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.loginCss a:hover {
+  text-decoration: underline;
+}
