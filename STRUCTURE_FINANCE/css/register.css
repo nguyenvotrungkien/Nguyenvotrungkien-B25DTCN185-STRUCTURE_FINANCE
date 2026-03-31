@@ -6,77 +6,85 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Background */
+/* Background toàn màn hình, cố định ở giữa */
 body {
   height: 100vh;
+  width: 100vw;
   background: #f5f5f5;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden; /* Ngăn scroll bar */
 }
 
-/* Container */
+/* Container form đăng ký */
 .register-container {
-  width: 300px;
+  width: 450px; /* Tăng chiều rộng to hơn form login */
   background: #fff;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  padding: 40px 30px; /* Nới rộng khoảng cách bên trong */
+  border-radius: 12px; /* Bo góc mượt giống login */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Bóng mềm đồng bộ */
   text-align: center;
 }
 
-/* Title */
+/* Tiêu đề */
 .register-title {
-  font-size: 14px;
+  font-size: 22px; /* Chữ to rõ ràng hơn */
   font-weight: 600;
-  margin-bottom: 12px;
+  margin-bottom: 25px;
   color: #333;
 }
 
-/* Input */
+/* Ô nhập liệu (Input) */
 .register-input {
   width: 100%;
-  padding: 8px 10px;
-  margin-bottom: 8px;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  font-size: 12px;
+  padding: 12px 15px; /* Làm ô input cao và dễ bấm hơn */
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 15px; /* Chữ trong ô to ra */
   outline: none;
+  transition: all 0.2s ease;
 }
 
+/* Hiệu ứng khi click vào ô input */
 .register-input:focus {
   border-color: #28a745;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.1);
 }
 
-/* Button */
+/* Nút bấm (Button) */
 .register-btn {
   width: 100%;
-  padding: 8px;
+  padding: 14px;
   background: #1e9e43;
   color: white;
   border: none;
-  border-radius: 4px;
-  font-size: 13px;
+  border-radius: 8px;
+  font-size: 16px; /* Chữ nút to hơn */
+  font-weight: 600;
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: 10px;
+  transition: background 0.2s ease;
 }
 
 .register-btn:hover {
   background: #188a39;
 }
 
-/* Footer */
+/* Phần chữ phía dưới (Footer) */
 .register-footer {
-  margin-top: 10px;
-  font-size: 11px;
+  margin-top: 25px;
+  font-size: 14px; /* Chữ to dễ đọc hơn */
   color: #666;
 }
 
-/* Link */
+/* Link Đăng nhập */
 .register-link {
   color: #4a4aff;
   text-decoration: none;
-  margin-left: 3px;
+  margin-left: 5px;
+  font-weight: 600;
 }
 
 .register-link:hover {

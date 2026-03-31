@@ -3,17 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Đăng nhập hệ thống</title>
     <link rel="stylesheet" href="/css/login.css" />
   </head>
   <body>
     <div class="loginCss" id="loginForm">
       <p class="login-title"><b>🔐 Đăng nhập</b></p>
-      <input class="login-input" placeholder="Tên đăng nhập" id="username" type="text" />
-      <input class="login-btn" placeholder="Mật khẩu" id="password" type="password" />
-      <button type="submit">Đăng nhập</button>
+      
+      <input class="login-input" placeholder="Email" id="email" type="email" />
+      
+      <input class="login-input" placeholder="Mật khẩu" id="password" type="password" />
+      
+      <button type="submit" id="btnLogin">Đăng nhập</button>
+      
       <p>Chưa có tài khoản? <a href="./register.html">Đăng ký ngay</a></p>
     </div>
     <script src="/js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
 </html>

@@ -1,59 +1,69 @@
 @media (max-width: 768px) {
-
-  /* HEADER giữ nguyên full width */
+  /* HEADER */
   .header {
     padding: 12px 15px;
+    gap: 10px;
   }
 
-  /* ❌ BỎ margin auto + width 90% */
+  /* BANNER */
   .banner {
     width: 100%;
-    margin: 0; /* QUAN TRỌNG */
-    border-radius: 0; /* nếu muốn sát mép giống ảnh */
-     width: 100%;
-    margin-top: 10px; /* tạo khoảng cách với header */
-    border-radius: 10px; /* giống card trong ảnh */
+    margin: 10px 0 0 0;
+    border-radius: 10;
   }
 
-  /* container mới là phần có khoảng cách */
+  /* CONTAINER */
   .container {
     width: 100%;
-    padding: 0 15px;
-  }
-
-  /* các card giữ spacing bên trong container */
-  .card {
     padding: 15px;
   }
 
-  /* ROW -> dọc */
-  .row {
-    flex-direction: column;
-    align-items: stretch;
+  .month-selector,
+  .budget-setup,
+  .balance-summary,
+  .category-manager,
+  .transaction-adder,
+  .transaction-history,
+  .monthly-stats {
+    padding: 15px;
   }
 
-  input,
-  select,
-  .btn {
-    width: 100%;
-  }
-
-  .btn {
-    margin-top: 5px;
-  }
-
-  .list li {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-  }
-
-  .list li div {
+  /* Giữ phần Chọn tháng và Ngân sách nằm ngang, căn giữa, không bị kéo giãn 100% */
+  .month-selector,
+  .budget-setup {
     display: flex;
-    gap: 5px;
+    flex-direction: row; /* Giữ nguyên nằm ngang */
+    justify-content: center; /* Căn giữa giống bản Figma */
+    align-items: center; /* Đảm bảo chữ và ô input ngang hàng nhau */
+    flex-wrap: wrap; /* Chỉ rớt xuống dòng nếu em xem trên màn hình điện thoại cực kỳ bé */
+    gap: 10px;
   }
 
-  .pagination {
+  /* Cố định các phần nhập liệu và danh sách luôn nằm ngang giống ảnh mẫu */
+  .category-form,
+  .transaction-adder,
+  .history-controls {
+    display: flex;
+    flex-direction: row;
+    gap: 5px; /* Thu nhỏ khoảng cách lại một chút trên mobile */
+  }
+
+  .category-item,
+  .history-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* Đảm bảo các input trong form ngang tự động co giãn mà không tràn viền */
+  .category-form input,
+  .transaction-adder input,
+  .history-controls input {
+    min-width: 0; /* Rất quan trọng: giúp input flexbox có thể thu nhỏ hơn kích thước mặc định */
+  }
+
+  /* PHÂN TRANG */
+  .history-pagination {
     justify-content: center;
     flex-wrap: wrap;
   }

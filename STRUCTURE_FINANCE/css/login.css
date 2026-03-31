@@ -6,78 +6,84 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Background toàn màn hình */
+/* Background toàn màn hình: Đảm bảo form luôn nằm ở chính giữa */
 body {
   height: 100vh;
-  background: #f3f4f6;
+  width: 100vw;
+  background: #f3f4f6; /* Màu nền xám nhạt */
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden; /* Ngăn scroll bar nảy sinh gây lệch */
 }
 
 /* Card login */
 .loginCss {
-  width: 320px;
+  width: 360px; /* Cho form rộng ra một chút giống thiết kế */
   background: #ffffff;
-  padding: 25px 20px;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  padding: 35px 25px;
+  border-radius: 12px;
+  /* Đổ bóng mềm, loại bỏ hiện tượng bị 2 khối hộp chồng lên nhau */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
   text-align: center;
 }
 
 /* Title */
-.loginCss p:first-child {
-  margin-bottom: 15px;
-  font-size: 16px;
+.loginCss .login-title {
+  margin-bottom: 25px;
+  font-size: 18px;
+  color: #333;
 }
 
 /* Input */
-.loginCss input {
+.loginCss .login-input {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 6px;
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
   border: 1px solid #ddd;
   outline: none;
   font-size: 14px;
-  transition: 0.2s;
+  transition: all 0.2s ease;
 }
 
-.loginCss input:focus {
-  border-color: #6c63ff;
-  box-shadow: 0 0 0 2px rgba(108, 99, 255, 0.1);
+/* Hiệu ứng khi click vào ô input */
+.loginCss .login-input:focus {
+  border-color: #5a54e6;
+  box-shadow: 0 0 0 3px rgba(90, 84, 230, 0.1);
 }
 
 /* Button */
 .loginCss button {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: none;
-  border-radius: 6px;
-  background: linear-gradient(90deg, #6c63ff, #5a54e6);
+  border-radius: 8px;
+  background: #5a54e6; /* Màu xanh tím giống thiết kế */
   color: white;
+  font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  margin-top: 5px;
-  transition: 0.2s;
+  margin-top: 10px;
+  transition: background 0.2s ease;
 }
 
 .loginCss button:hover {
-  opacity: 0.9;
+  background: #4a45c6; /* Đậm hơn một chút khi hover */
 }
 
-/* Text dưới */
+/* Text dưới cùng */
 .loginCss p:last-child {
-  margin-top: 12px;
-  font-size: 13px;
+  margin-top: 20px;
+  font-size: 14px;
   color: #666;
 }
 
-/* Link */
+/* Link Đăng ký */
 .loginCss a {
-  color: #6c63ff;
+  color: #5a54e6;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .loginCss a:hover {

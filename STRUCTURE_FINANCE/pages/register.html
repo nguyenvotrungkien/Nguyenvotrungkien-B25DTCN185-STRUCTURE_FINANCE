@@ -10,22 +10,41 @@
     <div class="registerCss register-container">
       <p class="register-title">📝 Đăng ký tài khoản</p>
 
-      <input class="register-input" placeholder="Tên tài khoản" type="text" />
-      <input class="register-input" placeholder="Mật khẩu" type="text" />
       <input
         class="register-input"
-        placeholder="Xác nhận Mật khẩu"
+        id="fullName"
+        placeholder="Tên tài khoản (Họ và tên)"
         type="text"
       />
 
-      <button class="register-btn">Đăng ký</button>
+      <input
+        class="register-input"
+        id="email"
+        placeholder="Email đăng ký"
+        type="email"
+      />
+
+      <input
+        class="register-input"
+        id="password"
+        placeholder="Mật khẩu"
+        type="password"
+      />
+      <input
+        class="register-input"
+        id="confirmPassword"
+        placeholder="Xác nhận Mật khẩu"
+        type="password"
+      />
+
+      <button class="register-btn" id="btnRegister">Đăng ký</button>
 
       <p class="register-footer">
-        Đã có tài khoản?<a class="register-link" href="./login.html"
-          >Đăng nhập</a
-        >
+        Đã có tài khoản?
+        <a class="register-link" href="./login.html">Đăng nhập</a>
       </p>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/register.js"></script>
   </body>
 </html>
