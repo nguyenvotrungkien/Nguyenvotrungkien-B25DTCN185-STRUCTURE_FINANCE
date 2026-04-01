@@ -10,13 +10,17 @@
   <body>
     <header class="header">
       <div class="header-left">
-        <p>📒 Tài Chính Cá Nhân Kiên</p>
+        <p>📒 Tài Chính Cá Nhân _ Kiên</p>
       </div>
-      <div class="header-right">
-        <select class="account-select">
-          <option>Tài khoản</option>
-          <option>Đăng Xuất</option>
-        </select>
+
+      <div class="header-right dropdown">
+        <button class="account-btn" id="accountBtn">
+          <span id="userNameDisplay">Tài khoản</span> ▼
+        </button>
+        <div class="dropdown-content" id="dropdownMenu">
+          <a href="#" id="btnProfile">👤 Thông tin cá nhân</a>
+          <a href="#" id="btnLogout">🚪 Đăng xuất</a>
+        </div>
       </div>
     </header>
 
@@ -124,7 +128,8 @@
       </div>
     </section>
 
-    <footer class="footer">© 2025 Quản Lý Tài Chính Cá Nhân</footer>
+    <footer class="footer">© 2025 Quản Lý Tài Chính Cá Nhân By Kien</footer>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/js/index.js"></script>
   </body>
 </html>

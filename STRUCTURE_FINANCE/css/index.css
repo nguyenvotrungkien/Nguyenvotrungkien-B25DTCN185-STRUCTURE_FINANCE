@@ -244,3 +244,64 @@ select {
   border-bottom: 1px solid #ddd;
   text-align: left;
 }
+/* =========================================
+   5. MENU DROPDOWN TÀI KHOẢN
+   ========================================= */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Nút bấm trên header */
+.account-btn {
+  background: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 8px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.2s;
+}
+
+.account-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Khối menu xổ xuống (mặc định ẩn) */
+.dropdown-content {
+  display: none; 
+  position: absolute;
+  right: 0;
+  top: 100%; 
+  background-color: #ffffff;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 10; 
+  margin-top: 5px;
+}
+
+/* Class dùng để JS gọi ra hiển thị menu */
+.dropdown-content.show {
+  display: block; 
+}
+
+/* Các thẻ a bên trong menu */
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+  color: #4f46e5;
+}
