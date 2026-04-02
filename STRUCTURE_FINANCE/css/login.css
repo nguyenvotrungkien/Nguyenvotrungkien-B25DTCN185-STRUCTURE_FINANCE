@@ -1,4 +1,3 @@
-/* Reset nhẹ */
 * {
   margin: 0;
   padding: 0;
@@ -6,36 +5,38 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Background toàn màn hình: Đảm bảo form luôn nằm ở chính giữa */
 body {
-  height: 100vh;
-  width: 100vw;
-  background: #f3f4f6; /* Màu nền xám nhạt */
+  margin: 0;
+  padding: 0;
+  background: #f3f4f6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.auth-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
-  overflow: hidden; /* Ngăn scroll bar nảy sinh gây lệch */
+  min-height: 100vh;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
-/* Card login */
 .loginCss {
-  width: 360px; /* Cho form rộng ra một chút giống thiết kế */
+  width: 360px;
   background: #ffffff;
   padding: 35px 25px;
   border-radius: 12px;
-  /* Đổ bóng mềm, loại bỏ hiện tượng bị 2 khối hộp chồng lên nhau */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); 
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
   text-align: center;
 }
 
-/* Title */
 .loginCss .login-title {
   margin-bottom: 25px;
   font-size: 18px;
   color: #333;
 }
 
-/* Input */
 .loginCss .login-input {
   width: 100%;
   padding: 12px 15px;
@@ -47,19 +48,17 @@ body {
   transition: all 0.2s ease;
 }
 
-/* Hiệu ứng khi click vào ô input */
 .loginCss .login-input:focus {
   border-color: #5a54e6;
   box-shadow: 0 0 0 3px rgba(90, 84, 230, 0.1);
 }
 
-/* Button */
 .loginCss button {
   width: 100%;
   padding: 12px;
   border: none;
   border-radius: 8px;
-  background: #5a54e6; /* Màu xanh tím giống thiết kế */
+  background: #5a54e6;
   color: white;
   font-size: 15px;
   font-weight: 600;
@@ -69,17 +68,15 @@ body {
 }
 
 .loginCss button:hover {
-  background: #4a45c6; /* Đậm hơn một chút khi hover */
+  background: #4a45c6;
 }
 
-/* Text dưới cùng */
 .loginCss p:last-child {
   margin-top: 20px;
   font-size: 14px;
   color: #666;
 }
 
-/* Link Đăng ký */
 .loginCss a {
   color: #5a54e6;
   text-decoration: none;

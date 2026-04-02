@@ -127,10 +127,13 @@ select {
 /* --- Số tiền còn lại --- */
 .balance-summary {
   text-align: center;
+  padding: 0 15px;
 }
 .balance-summary .money {
   color: green;
   margin-top: 5px;
+  overflow-wrap: break-word; /* Rớt dòng nếu từ quá dài */
+  word-break: break-all;     /* Bẻ gãy luôn cả dãy số liền nhau để rớt dòng */
 }
 
 /* --- Quản lý danh mục --- */

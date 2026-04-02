@@ -7,7 +7,7 @@ const validateEmail = (email) => {
     );
 };
 
-// Lấy các phần tử từ HTML
+// render các phần tử từ HTML
 const fullNameInput = document.getElementById("fullName");
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
@@ -21,17 +21,17 @@ btnRegister.addEventListener("click", function () {
   const password = passwordInput.value.trim();
   const confirmPassword = confirmPasswordInput.value.trim();
 
-  // 1. Kiểm tra rỗng
+  // 1. Kiểm tra rỗng thông tin đăng kkis
   if (!fullName || !email || !password || !confirmPassword) {
     Swal.fire({
       icon: "error",
       title: "Thiếu thông tin!",
-      text: "Vui lòng điền đầy đủ tất cả các trường.",
+      text: "Vui lòng điền đầy đủ thông tin.",
     });
     return;
   }
 
-  // 2. Kiểm tra định dạng email
+  // 2. Kiểm tra định dạng email theo hàm ở trên 
   if (!validateEmail(email)) {
     Swal.fire({
       icon: "error",
@@ -63,15 +63,12 @@ btnRegister.addEventListener("click", function () {
 
   // --- LƯU DỮ LIỆU ---
   
-  // Lấy dữ liệu an toàn từ localStorage
-  let users = [];
-  try {
-    const storedData = JSON.parse(localStorage.getItem("users"));
-    if (Array.isArray(storedData)) {
-      users = storedData;
-    }
-  } catch (error) {
-    console.log("Dữ liệu cũ bị lỗi, tạo mảng users mới.");
+  let storedData = localStorage.getItem("users");
+  let users = []; 
+
+  // Nếu kho có dữ liệu không phải là null, thì mới tiến hành đọc parse
+  if (storedData !== null) {
+    users = JSON.parse(storedData);
   }
 
   // Kiểm tra xem email đã tồn tại chưa
@@ -99,18 +96,16 @@ btnRegister.addEventListener("click", function () {
     status: true,
   };
 
-  // Lưu vào mảng và cập nhật localStorage
+  // Lưu vào mảng và cập nhật trong localStorage
   users.push(newUser);
   localStorage.setItem("users", JSON.stringify(users));
 
-  // Thông báo thành công với SweetAlert
   Swal.fire({
     icon: "success",
     title: "Đăng ký thành công!",
     text: "Chào mừng bạn đến với hệ thống Quản lý tài chính.",
     confirmButtonText: "Đến trang Đăng nhập",
   }).then((result) => {
-    // Chỉ khi người dùng bấm nút xác nhận trên bảng thông báo thì mới chuyển trang
     if (result.isConfirmed) {
       window.location.href = "login.html";
     }

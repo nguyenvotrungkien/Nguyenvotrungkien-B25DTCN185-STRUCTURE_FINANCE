@@ -7,17 +7,29 @@
     <link rel="stylesheet" href="/css/login.css" />
   </head>
   <body>
-    <div class="loginCss" id="loginForm">
-      <p class="login-title"><b>🔐 Đăng nhập</b></p>
-      
-      <input class="login-input" placeholder="Email" id="email" type="email" />
-      
-      <input class="login-input" placeholder="Mật khẩu" id="password" type="password" />
-      
-      <button type="submit" id="btnLogin">Đăng nhập</button>
-      
-      <p>Chưa có tài khoản? <a href="./register.html">Đăng ký ngay</a></p>
+    <div class="auth-wrapper">
+      <div class="loginCss" id="loginForm">
+        <p class="login-title"><b>🔐 Đăng nhập</b></p>
+
+        <input
+          class="login-input"
+          placeholder="Email"
+          id="email"
+          type="email"
+        />
+        <input
+          class="login-input"
+          placeholder="Mật khẩu"
+          id="password"
+          type="password"
+        />
+
+        <button type="submit" id="btnLogin">Đăng nhập</button>
+
+        <p>Chưa có tài khoản? <a href="./register.html">Đăng ký ngay</a></p>
+      </div>
     </div>
+
     <script src="/js/login.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </body>
