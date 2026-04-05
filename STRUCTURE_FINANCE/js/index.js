@@ -14,14 +14,14 @@ const accountBtn = document.getElementById("accountBtn");
 const dropdownMenu = document.getElementById("dropdownMenu");
 
 accountBtn.addEventListener("click", function () {
-dropdownMenu.classList.toggle("show");
+  dropdownMenu.classList.toggle("show");
 });
 
 // 3. bảng thông tin cá nhân
 const btnProfile = document.getElementById("btnProfile");
 btnProfile.addEventListener("click", function (event) {
   event.preventDefault();
-  dropdownMenu.classList.remove("show"); 
+  dropdownMenu.classList.remove("show");
 
   Swal.fire({
     title: "Thông Tin Chủ Nhân",
@@ -57,8 +57,8 @@ btnLogout.addEventListener("click", function (event) {
     cancelButtonText: "Hủy",
   }).then((result) => {
     if (result.isConfirmed) {
-      localStorage.removeItem("currentUser"); 
-      window.location.href = "login.html"; 
+      localStorage.removeItem("currentUser");
+      window.location.href = "login.html";
     }
   });
 });
@@ -93,7 +93,7 @@ const loadMonthData = function () {
   if (!selectedMonth) return;
 
   const budgets = getBudgets();
-  
+
   // Tìm xem người dùng đang đăng nhập (currentUser) đã lưu ngân sách cho tháng này chưa
   const currentBudget = budgets.find(function (item) {
     return item.email === currentUser.email && item.month === selectedMonth;
@@ -107,7 +107,7 @@ const loadMonthData = function () {
   } else {
     // Nếu chưa có thì xóa trắng ô input, đưa số dư về 0
     budgetInput.value = "";
-    remainingMoney.innerText = "0 ₫";
+    remainingMoney.innerText = "0 VND";
     remainingMoney.style.color = "black";
   }
 };
@@ -117,14 +117,14 @@ const setDefaultMonth = function () {
   const today = new Date();
   const year = today.getFullYear();
   let month = today.getMonth() + 1; // Trong JS, tháng bắt đầu từ 0 nên phải cộng 1
-  
+
   // Thêm số 0 đằng trước nếu là các tháng 1-9 (để ra định dạng chuẩn YYYY-MM)
   if (month < 10) {
     month = "0" + month;
   }
 
   monthInput.value = year + "-" + month;
-  
+
   // Sau khi set ngày xong thì gọi hàm load dữ liệu luôn
   loadMonthData();
 };
@@ -137,25 +137,25 @@ monthInput.addEventListener("change", loadMonthData);
 // 2. Khi người dùng nhập tiền và bấm nút "Lưu"
 btnSaveBudget.addEventListener("click", function () {
   const selectedMonth = monthInput.value;
-  const budgetAmount = Number(budgetInput.value); // Chuyển chữ thành số
+  const budgetAmount = Number(budgetInput.value);
 
-  // Kiểm tra lỗi nhập liệu (Dùng SweetAlert2)
+  // Kiểm tra lỗi nhập liệu
   if (!selectedMonth) {
-    Swal.fire({ 
-      icon: "error", 
-      title: "Chưa chọn tháng", 
-      text: "Không chọn tháng thì sao mà lưu ???" 
+    Swal.fire({
+      icon: "error",
+      title: "Chưa chọn tháng",
+      text: "Vui lòng nhập tháng để tiếp tục",
     });
-    return; // Dừng lại luôn
+    return;
   }
 
   if (budgetAmount <= 0 || isNaN(budgetAmount)) {
-    Swal.fire({ 
-      icon: "error", 
-      title: "Số tiền không hợp lệ", 
-      text: "không có tiền thì nhập làm gì" 
+    Swal.fire({
+      icon: "error",
+      title: "Số tiền không hợp lệ",
+      text: "Vui lòng, số tiền phải lớn hơn 0",
     });
-    return; // Dừng lại luôn
+    return;
   }
 
   let budgets = getBudgets();
@@ -173,23 +173,198 @@ btnSaveBudget.addEventListener("click", function () {
     const newBudget = {
       email: currentUser.email,
       month: selectedMonth,
-      amount: budgetAmount
+      amount: budgetAmount,
     };
     budgets.push(newBudget);
   }
 
   // Lưu mảng đã cập nhật ngược lại vào localStorage
   localStorage.setItem("budgets", JSON.stringify(budgets));
-  
+
   // Thông báo THÀNH CÔNG (Tự động ẩn sau 1.5 giây, không cần ai bấm)
   Swal.fire({
     icon: "success",
     title: "Đã lưu ngân sách!",
-    text: "Ngân sách tháng " + selectedMonth + " là: " + formatMoney(budgetAmount),
+    text:
+      "Ngân sách tháng " + selectedMonth + " là: " + formatMoney(budgetAmount),
     showConfirmButton: false,
-    timer: 1500
+    timer: 3000,
   });
-  
+
   // Gọi lại hàm load để cập nhật số tiền xanh lá cây lên màn hình
   loadMonthData();
 });
+// ==========================================
+// 6. QUẢN LÝ DANH MỤC VÀ HẠN MỨC
+// ==========================================
+
+const catNameInput = document.getElementById("catNameInput");
+const catBudgetInput = document.getElementById("catBudgetInput");
+const btnAddCategory = document.getElementById("btnAddCategory");
+const categoryList = document.getElementById("categoryList");
+
+const getCategories = function () {
+  let storedData = localStorage.getItem("categories");
+  if (storedData !== null) return JSON.parse(storedData);
+  return [];
+};
+
+const getMonthlyCategories = function () {
+  let storedData = localStorage.getItem("monthlyCategories");
+  if (storedData !== null) return JSON.parse(storedData);
+  return [];
+};
+
+// --- HÀM 1: VẼ DANH SÁCH RA MÀN HÌNH ---
+const renderCategories = function () {
+  categoryList.innerHTML = "";
+
+  const categories = getCategories();
+  const monthlyCategories = getMonthlyCategories();
+  const selectedMonth = monthInput.value;
+
+  const currentMonthData = monthlyCategories.find(function (m) {
+    return m.month === selectedMonth;
+  });
+
+  categories.forEach(function (cat) {
+    let budgetText = "Chưa thiết lập";
+    let rawBudget = 0;
+
+    if (currentMonthData) {
+      const budgetDetail = currentMonthData.categories.find(function (b) {
+        return b.categoryId === cat.id;
+      });
+      if (budgetDetail) {
+        budgetText = formatMoney(budgetDetail.budget);
+        rawBudget = budgetDetail.budget;
+      }
+    }
+
+    const li = document.createElement("li");
+    li.className = "category-item";
+    li.innerHTML = `
+      <span>${cat.name} - Giới hạn: <span style="color: #3b82f6">${budgetText}</span></span>
+      <div class="category-actions">
+        <button class="btn red" onclick="editCategory(${cat.id}, '${cat.name}', ${rawBudget})">Sửa</button>
+        <button class="btn red" onclick="deleteCategory(${cat.id})">Xóa</button>
+      </div>
+    `;
+
+    categoryList.appendChild(li);
+  });
+};
+
+// --- HÀM 2: LƯU DANH MỤC MỚI (VÀ LƯU SỬA) ---
+btnAddCategory.addEventListener("click", function () {
+  const catName = catNameInput.value.trim();
+  const catBudget = Number(catBudgetInput.value);
+  const selectedMonth = monthInput.value;
+
+  if (!selectedMonth || !catName || catBudget <= 0 || isNaN(catBudget)) {
+    Swal.fire({
+      icon: "error",
+      title: "Lỗi",
+      text: "Vui lòng nhập đầy đủ và hợp lệ!",
+    });
+    return;
+  }
+
+  let categories = getCategories();
+  let foundCat = categories.find(
+    (c) => c.name.toLowerCase() === catName.toLowerCase(),
+  );
+  let categoryIdToSave;
+
+  if (!foundCat) {
+    categoryIdToSave = Date.now();
+    categories.push({
+      id: categoryIdToSave,
+      name: catName,
+      imageUrl: "",
+      status: true,
+    });
+    localStorage.setItem("categories", JSON.stringify(categories));
+  } else {
+    categoryIdToSave = foundCat.id;
+  }
+
+  let monthlyCategories = getMonthlyCategories();
+  let currentMonthData = monthlyCategories.find(
+    (m) => m.month === selectedMonth,
+  );
+
+  if (!currentMonthData) {
+    currentMonthData = {
+      id: Date.now(),
+      month: selectedMonth,
+      categories: [
+        { id: Date.now(), categoryId: categoryIdToSave, budget: catBudget },
+      ],
+    };
+    monthlyCategories.push(currentMonthData);
+  } else {
+    let budgetIndex = currentMonthData.categories.findIndex(
+      (b) => b.categoryId === categoryIdToSave,
+    );
+    if (budgetIndex !== -1) {
+      currentMonthData.categories[budgetIndex].budget = catBudget;
+    } else {
+      currentMonthData.categories.push({
+        id: Date.now(),
+        categoryId: categoryIdToSave,
+        budget: catBudget,
+      });
+    }
+  }
+
+  localStorage.setItem("monthlyCategories", JSON.stringify(monthlyCategories));
+
+  // Reset lại ô nhập liệu
+  catNameInput.value = "";
+  catBudgetInput.value = "";
+
+  // TRẢ NÚT VỀ TRẠNG THÁI GỐC "THÊM DANH MỤC"
+  btnAddCategory.innerText = "Thêm danh mục";
+
+  renderCategories();
+});
+
+// --- HÀM 3: XỬ LÝ NÚT SỬA MÀU ĐỎ Ở DANH SÁCH ---
+window.editCategory = function (id, name, budget) {
+  catNameInput.value = name;
+  if (budget > 0) {
+    catBudgetInput.value = budget;
+  } else {
+    catBudgetInput.value = "";
+  }
+
+  catNameInput.focus();
+
+  // ĐỔI CHỮ NÚT THÀNH "SỬA DANH MỤC" KHI BẤM VÀO ĐÂY
+  btnAddCategory.innerText = "Sửa danh mục";
+};
+
+// --- HÀM 4: XÓA DANH MỤC ---
+window.deleteCategory = async function (id) {
+  const result = await Swal.fire({
+    title: "Xóa danh mục?",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#d33",
+    cancelButtonColor: "#3085d6",
+    confirmButtonText: "Đồng ý xóa",
+    cancelButtonText: "Hủy",
+  });
+
+  if (result.isConfirmed === true) {
+    let categories = getCategories();
+    categories = categories.filter((cat) => cat.id !== id);
+    localStorage.setItem("categories", JSON.stringify(categories));
+    renderCategories();
+  }
+};
+
+// --- KÍCH HOẠT KHI MỞ TRANG ---
+monthInput.addEventListener("change", renderCategories);
+renderCategories();

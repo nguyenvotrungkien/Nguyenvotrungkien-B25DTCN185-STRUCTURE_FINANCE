@@ -52,25 +52,17 @@
         <h3>💼 Quản lý danh mục (theo tháng)</h3>
 
         <div class="category-form transaction-adder">
-          <input placeholder="Tên danh mục" type="text" />
-          <input placeholder="Giới hạn (VND)" type="number" />
-          <button class="btn green">Thêm danh mục</button>
+          <input type="text" id="catNameInput" placeholder="Tên danh mục (VD: Tiền ăn)" />
+          <input type="number" id="catBudgetInput" placeholder="Giới hạn (VND)" />
+          <button class="btn green" id="btnAddCategory">Thêm danh mục</button>
         </div>
+
+        <ul class="category-list" id="categoryList">
+          </ul>
+      </div>
 
         <ul class="category-list">
           <li class="category-item">
-            <span>tiền phòng - Giới hạn: 2,000,000 VND</span>
-            <div class="category-actions">
-              <button class="btn red">Sửa</button>
-              <button class="btn red">Xóa</button>
-            </div>
-          </li>
-          <li class="category-item">
-            <span>tiền ăn - Giới hạn: 1,000,000 VND</span>
-            <div class="category-actions">
-              <button class="btn red">Sửa</button>
-              <button class="btn red">Xóa</button>
-            </div>
           </li>
         </ul>
       </div>
